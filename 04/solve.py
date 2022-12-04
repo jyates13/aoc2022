@@ -1,5 +1,10 @@
 from functools import cache
 
+'''
+Very dumb bounds checking but can't muster the energy to make it nicer
+''' 
+
+
 @cache
 def _get_input(input_file):
     with open(input_file, "r") as f:
@@ -13,14 +18,14 @@ def part_1(input_file):
     for a in assignments: 
         if ((a[0][0] >= a[1][0]) and (a[0][1] <= a[1][1])):
             subsets += 1
-            print(f"{a}: ({a[0][0]} >= {a[1][0]}) and ({a[0][1]} <= {a[1][1]}))")
         elif ((a[1][0] >= a[0][0]) and (a[1][1] <= a[0][1])):
             subsets += 1
-            print(f"{a}: ({a[1][0]} >= {a[0][0]}) and ({a[1][1]} <= {a[0][1]}))")
     return subsets
+
 
 def within_bound(a, ba, bb):
     return (a >= ba) and (a <= bb)
+
 
 def part_2(input_file):
     assignments = _get_input(input_file)
@@ -35,7 +40,7 @@ def part_2(input_file):
 
 
 if __name__=="__main__":
-    # print(part_1("sample.txt"))
-    # print(part_1("input.txt"))
+    print(part_1("sample.txt"))
+    print(part_1("input.txt"))
     print(part_2("sample.txt"))
     print(part_2("input.txt"))
